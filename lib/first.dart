@@ -210,6 +210,56 @@ class PricesPage extends StatefulWidget{
   _PricesPageState createState() => _PricesPageState();
 }
 class _PricesPageState extends State<PricesPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Prices'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Room Prices',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+            ),
+            SizedBox(height: 20),
+            DropdownButton<String>(
+              value: _selectedRoom,
+              icon: Icon(Icons.arrow_drop_down, color: Colors.blue),
+              onChanged: (String? newRoom) {
+                setState(() {
+                  _selectedRoom = newRoom!;
+                });
+              },
+              items: roomInfo.keys.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value.replaceAll('-', ' ').toUpperCase(),
+                    style: TextStyle(color: Colors.blueAccent),
+                  ),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Price: ${roomInfo[_selectedRoom]?['price']}',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
   String _selectedRoom  = 'luxury-suite';
   final Map<String, Map<String, dynamic>> roomInfo = {
     'luxury-suite': {
@@ -226,7 +276,7 @@ class _PricesPageState extends State<PricesPage> {
     },
   };
      
-}
+
 class ServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
