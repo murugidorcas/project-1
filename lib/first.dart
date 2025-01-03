@@ -204,20 +204,29 @@ class _RoomBookingPageState extends State<RoomBookingPage> {
   }
 }
 
-class PricesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Prices'),
-      ),
-      body: Center(
-        child: Text('Prices Page'),
-      ),
-    );
-  }
-}
 
+class PricesPage extends StatefulWidget{
+  @override
+  _PricesPageState createState() => _PricesPageState();
+}
+class _PricesPageState extends State<PricesPage> {
+  String _selectedRoom  = 'luxury-suite';
+  final Map<String, Map<String, dynamic>> roomInfo = {
+    'luxury-suite': {
+      'price': '\$250 per night',
+    },
+    'standard-room': {
+      'price': '\$120 per night',
+    },
+    'single-room': {
+      'price': '\$80 per night',
+    },
+    'deluxe-room': {
+      'price': '\$180 per night',
+    },
+  };
+     
+}
 class ServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
