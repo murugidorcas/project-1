@@ -87,8 +87,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
-dependencies:
-  flutter:
-    sdk: flutter
-  provider: ^6.0.0
+  # see https://flutter.dev/to/font-from-packageflutter:

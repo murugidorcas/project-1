@@ -81,27 +81,27 @@ class _RoomBookingPageState extends State<RoomBookingPage> {
   String _selectedRoom = 'luxury-suite';
   final Map<String, Map<String, dynamic>> roomInfo = {
     'luxury-suite': {
-      'price': '\$250 per night',
+      'price': '2500 per night',
       'capacity': 'Max Occupancy: 4 Adults + 2 Kids',
       'services': ['King Bed', 'Jacuzzi', 'Sea View', 'Free Wi-Fi', 'Breakfast Included']
     },
     'deluxe-room': {
-      'price': '\$180 per night',
+      'price': '1800 per night',
       'capacity': 'Max Occupancy: 2 Adults + 1 Child',
       'services': ['Queen Bed', 'City View', 'Free Wi-Fi', 'Breakfast Included']
     },
     'standard-room': {
-      'price': '\$120 per night',
+      'price': '1200 per night',
       'capacity': 'Max Occupancy: 2 Adults',
       'services': ['Double Bed', 'Garden View', 'Free Wi-Fi']
     },
     'single-room': {
-      'price': '\$80 per night',
+      'price': '800 per night',
       'capacity': 'Max Occupancy: 1 Adult',
       'services': ['Single Bed', 'City View', 'Free Wi-Fi']
     },
     'family-suite': {
-      'price': '\$300 per night',
+      'price': '3000 per night',
       'capacity': 'Max Occupancy: 5 Adults + 2 Kids',
       'services': ['Two Queen Beds', 'Living Area', 'Sea View', 'Free Wi-Fi', 'Breakfast Included']
     },
@@ -263,29 +263,69 @@ class _PricesPageState extends State<PricesPage> {
   String _selectedRoom  = 'luxury-suite';
   final Map<String, Map<String, dynamic>> roomInfo = {
     'luxury-suite': {
-      'price': '\$250 per night',
+      'price': '2500 per night',
     },
     'standard-room': {
-      'price': '\$120 per night',
+      'price': '1200 per night',
     },
     'single-room': {
-      'price': '\$80 per night',
+      'price': '800 per night',
     },
     'deluxe-room': {
-      'price': '\$180 per night',
+      'price': '1800 per night',
     },
+    'family-suite': {
+      'price': '3000 per night',
+  },
   };
-     
+    
 
-class ServicesPage extends StatelessWidget {
+class ServicesPage extends StatefulWidget {
+  @override
+  _ServicesPageState createState() => _ServicesPageState();
+}
+class _ServicesPageState extends State<ServicesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Services Offered'),
+        backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Text('Services Offered Page'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Services Offered',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Room Services:',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+            ),
+            SizedBox(height: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: (roomInfo[_selectedRoom]?['services'] as List<String>)
+                  .map((service) => Text(
+                        '- $service',
+                        style: TextStyle(fontSize: 16),
+                      ))
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
