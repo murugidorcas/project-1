@@ -26,6 +26,12 @@ class ActivitiesPage extends StatelessWidget {
       snacks: 'Cheese Platter, Crackers',
       price: '250',
     ),
+    Activity(
+      name: 'dance classes',
+      time: '7:00 PM - 9:00 PM',
+      snacks: 'Pizza, Soft Drinks',
+      price: '350',
+    ),
   ];
 
   @override
