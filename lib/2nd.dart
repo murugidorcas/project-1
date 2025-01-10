@@ -54,6 +54,7 @@ class ActivitiesPage extends StatelessWidget {
                   Text('Time: ${activity.time}'),
                   Text('Snacks: ${activity.snacks}'),
                   Text('Price: ${activity.price}'),
+                  Text('number of people: ${activity.number}'),
                 ],
               ),
             ),
@@ -69,11 +70,13 @@ class Activity {
   final String time;
   final String snacks;
   final String price;
+  final int number = 0;
 
   Activity({
     required this.name,
     required this.time,
     required this.snacks,
     required this.price,
+    required this.number,
   });
 }
